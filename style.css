@@ -1,24 +1,21 @@
 #xxx{
-    background: green;
-    display: block;
-  }
-  
-  body{
-    margin: 0px;
-  }
-  .actions{
-    position: fixed;
-    bottom: 0;
+  background: green;
+  display: block;
+}
+body{
+  margin: 0
+}
+.actions{
+  position: fixed;
     left: 0;
-  }
-  .actions > #brush{
-    display: none;
-  }
-  
-  .actions.x > #brush{
-    display: inline-block;
-  }
-  .actions.x > #eraser{
-    display: none
-  }
-  
+  bottom: 0;
+}
+.actions > #brush{
+  display: none
+}
+.actions.x > #brush{
+  display: inline-block;
+}
+.actions.x > #eraser{
+  display: none
+}
