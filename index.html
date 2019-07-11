@@ -5,16 +5,38 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的画板</title>
-  <link rel= "stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
   <canvas id="xxx" width=300 height=300></canvas>
   <div id=cations class="actions">
-    <button id=eraser>橡皮擦</button>
-    <button id=brush>画笔</button>
+    <svg id=pen class="active icon">
+      <use xlink:href="#icon-xingzhuang"></use>
+    </svg>
+    <svg id=eraser class="icon">
+      <use xlink:href="#icon-ERASER"></use>
+    </svg>
+    <svg id="clear" class="icon">
+      <use xlink:href="#icon-clearthecache"></use>
+    </svg>
+    <svg id="download" class="icon">
+      <use xlink:href="#icon-save"></use>
+    </svg>
   </div>
-
+  <ol class=colors>
+    <li id="red" class="red active"></li>
+    <li id="green" class="green"></li>
+    <li id="blue" class="blue"></li>
+  </ol>
+  <ol class="sizes">
+    <li id="thin" class="thin">
+    </li>
+    <li id="thick" class="thick">
+    </li>
+  </ol>
 </body>
 <script src="./main.js"></script>
+<script src="//at.alicdn.com/t/font_1287930_5vzmaksj6gb.js"></script>
+
 </html>

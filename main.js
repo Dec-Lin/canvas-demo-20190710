@@ -1,18 +1,57 @@
 var yyy = document.getElementById('xxx')
 var context = yyy.getContext('2d')
+var lineWidth = 5
 
 autoSetCanvasSize(yyy)
 
 listenToUser(yyy)
 
 var eraserEnabled = false
+pen.onclick = function () {
+  eraserEnabled = false
+  pen.classList.add('active')
+  eraser.classList.remove('active')
+}
 eraser.onclick = function () {
   eraserEnabled = true
-  cations.className = 'actions x'
+  eraser.classList.add('active')
+  pen.classList.remove('active')
 }
-brush.onclick = function () {
-  eraserEnabled = false
-  cations.className = 'actions'
+clear.onclick = function () {
+  context.clearRect(0, 0, yyy.width, yyy.height);
+}
+download.onclick = function () {
+  var url = yyy.toDataURL("image/png")
+  var a = document.createElement('a')
+  document.body.appendChild(a)
+  a.href = url
+  a.download = '图片'
+  a.target = '_blank'
+  a.click()
+}
+red.onclick = function () {
+  context.strokeStyle = "red"
+  red.classList.add('active')
+  green.classList.remove('active')
+  blue.classList.remove('active')
+}
+green.onclick = function () {
+  context.strokeStyle = "green"
+  red.classList.remove('active')
+  green.classList.add('active')
+  blue.classList.remove('active')
+}
+blue.onclick = function () {
+  context.strokeStyle = "blue"
+  red.classList.remove('active')
+  green.classList.remove('active')
+  blue.classList.add('active')
+}
+thin.onclick = function () {
+  lineWidth = 5
+}
+thick.onclick = function () {
+  lineWidth = 10
 }
 /***********/
 
@@ -42,7 +81,7 @@ function drawCircle(x, y, radius) {
 function drawLine(x1, y1, x2, y2) {
   context.beginPath()
   context.moveTo(x1, y1)
-  context.lineWidth = 2
+  context.lineWidth = lineWidth
   context.lineTo(x2, y2)
   context.stroke()
   context.closePath()
@@ -59,7 +98,6 @@ function listenToUser(canvas) {
     //说明是触屏设备
     canvas.ontouchstart = function (aaa) {
       console.log('开始摸我了')
-      console.log(aaa)
       var x = aaa.touches[0].clientX
       var y = aaa.touches[0].clientY
       console.log(x, y)
